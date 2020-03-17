@@ -2,25 +2,21 @@
  * Nome:Anne-Laure Stéphanie Capé
  * RA:230807
  */
-
 #include <stdio.h>
 #include <string.h>
-
 const int tam_buffer=100;
 int main()
 {
 	///initialisation
 	char buffer[tam_buffer];
 	char rev[tam_buffer];
-	char inverse[tam_buffer];
 	int espace[tam_buffer];
 	for(int g = 0; espace[g] != '\0'; g++) {
 			espace[g]=0;
 	}
-    int t, i, j, b;
+    int i, j, b;
     int count =0;
-    j = 0;
-    t = strlen(buffer);
+    j =-1;
 	int q=1;
 	espace[0]=0;
 	b=0;
@@ -28,20 +24,23 @@ int main()
 	fgets(buffer, tam_buffer, stdin);
 	//fin de mot
 	for(int h = 0; buffer[h] != '\0'; h++) {
-		if(buffer[h] == ' ' || buffer[h] == '\t' || buffer[h] == '\n'){
+		if(buffer[h] == ' ' || buffer[h] == '\n'){
 			espace[q++]=h; 
 			count++;
 		}
 	}
 //Inversion
 	while( b<=count){	
-		for (i = espace[b+1]; i >= espace[b]; i--)
+		for (i = espace[b+1]; i>=espace[b]; i--)
 		{
+			if(buffer[i]=='\n'){
+				i--;
+			}
 			rev[j++] = buffer[i];
 		}
     rev[j] = '\0';
 	b++;
  }
-    printf(" Chaîne après inversion = %s", rev);
+    printf(rev);
     return 0;
 }
