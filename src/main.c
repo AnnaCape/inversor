@@ -12,7 +12,7 @@ int main()
 	char rev[tam_buffer];
 	char res[tam_buffer];
 	int espace[tam_buffer];
-	for(int g = 0; espace[g] != '\0'; g++) {
+	for(int g = 0; g<tam_buffer; g++) {
 			espace[g]=0;
 	}
     int i, j, b;
@@ -23,7 +23,7 @@ int main()
 	fgets(buffer, tam_buffer, stdin);
 	//fin de mot
 	for(int h =0; buffer[h] != '\0'; h++) {
-		if(buffer[h] == ' ' || buffer[h] == '\t' || buffer[h] == '\n'){
+		if(buffer[h] == ' ' || buffer[h] == '\n'){
 			espace[count]=h; 
 			count++;
 		}
