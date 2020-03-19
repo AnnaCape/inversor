@@ -41,8 +41,9 @@ int main()
 	rev[j] ='\0';//fim string
 	
 	//tirar repeticao de espacio
+	if(count >2){
 		int s=0;
-	for(int r =0; rev[r] != '\0'; r++) {
+	for(int r =0; rev[r+1] != '\0'; r++) {
       if ((rev[r] == ' ' && rev[r+1] == ' ') != 1) {
         res[s] = rev[r];
         s++;
@@ -50,5 +51,8 @@ int main()
    }
    res[s] = '\0';
 	printf("%s\n",res);//sequencia inversa
+	}else {
+	printf("%s\n",rev);
+	}
     return 0;
 }
